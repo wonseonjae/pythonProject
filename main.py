@@ -1,19 +1,17 @@
 
-        def solution(participant, completion):
+def solution(participant, completion):
 
-            tmp = 0
+    tmp = 0
 
-            dic = {}
+    dic = {}
 
-            for p in participant:
+    for p in participant:
+        dic[hash(p)] = p
 
-                dic[hash(p)] = p
+        tmp += int(hash(p))
 
-                tmp += int(hash(p))
+    for com in completion:
+        tmp -= hash(com)
 
+    return dic[tmp]
 
-            for com in completion:
-
-                    tmp -= hash(com)
-
-            return dic[tmp]
